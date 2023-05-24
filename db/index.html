@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Gift Card</title>
+    <link rel="stylesheet" href="assets/bootstrap-5.2.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-6.2.1-web/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            /* background-color: #d8d8d8; */
+            background-color: #fff;
+        }
+        .bg-gray{
+            background-color: #d8d8d8;
+        }
+        .p-2{
+            padding: 2px 5px !important;
+        }
+        input [type="range"]::-webkit-slider-thumb { 
+            background-color: #333; 
+        }
+        .slider{
+            height: 2px;
+            max-width: 150px;
+            appearance: revert;
+            background-color: #636363;
+            color: #525252;
+            border-color: #414141;
+            border-width: 100px;
+        }
+        li{
+            margin: 2px 5px;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        li>a{
+            color: #333 !important;
+            padding: unset !important;
+            font-weight: 500 !important;
+            font-size: 11px !important;
+        }
+        li>a.active{
+            color: #fff !important;
+            background-color: #1a68e6 !important;
+            border-radius: 5px;
+            padding: 0px 5px !important;
+        }
+        .font-16{
+            font-size: 18px;
+            font-weight: 500;
+        }
+        button{
+            font-size: 10px !important;
+            max-height: 20px !important;
+            padding: 2px 5px !important;
+        }
+        p{
+            margin-bottom: 1px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        .footer-col{
+            max-width: 20% !important;
+        }
+        .footer-col>h5{
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            margin-bottom: 2px;
+        }
+        .footer-col>ul{
+            padding: 0px;
+        }
+        .footer-col>ul>li{
+            font-size: 10px !important;
+            /* font-weight: 500 !important; */
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .slider {
+            -webkit-appearance: none; /* Remove default styling */
+            width: 100px; /* Set the width of the slider */
+            height: 2px; /* Set the height of the slider */
+            background-color: #333; /* Set the background color of the slider */
+            outline: none; /* Remove outline */
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Remove default styling */
+            appearance: none;
+            width: 15px; /* Set the width of the slider thumb */
+            height: 15px; /* Set the height of the slider thumb */
+            background-color: #fff; /* Set the background color of the slider thumb */
+            cursor: pointer; /* Add cursor pointer on hover */
+            border-radius: 10px;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 15px; /* Set the width of the slider thumb for Firefox */
+            height: 15px; /* Set the height of the slider thumb for Firefox */
+            background-color: #fff; /* Set the background color of the slider thumb for Firefox */
+            cursor: pointer; /* Add cursor pointer on hover */
+            border-radius: 10px;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body style="font-size: 10px; overflow-x: hidden;">
+    <div class="col-12 bg-gray">
+        <div class="row" style="
+            border-bottom: 1px solid #d8d8d8;
+            width: 100%;
+            max-width: 100%;
+        ">
+            <div class="col-md-3 p-2">
+                <span style="
+                    padding-left: 25px;
+                    font-size: 12px;
+                    color: #767676;
+                ">
+                    <i class="fa fa-backward me-2"></i>
+                    <i class="fa fa-play me-2" style="
+                        font-size: 16px;
+                    "></i>
+                    <i class="fa fa-forward"></i>
+                </span>
+                <span class="me-5"></span>
+                <input class="slider" 
+                    type="range" max="100" value="100" 
+                    />
+            </div>
+            <div class="col-md-6 text-center" style="
+                background-color: #e5e5e5; 
+                padding: 5px 10px !important;
+            ">
+                <span class="fab fa-apple fa-2x"></span>
+            </div>
+            <div class="col-md-3 row" 
+                style="padding: 5px 10px !important;">
+                <div class="col-2">
+                    <button style="
+                            border-radius: 5px;
+                        ">
+                        <span class="fa fa-list"></span>
+                    </button>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <!-- <input type="search"
+                        placeholder="search" style="
+                            width: 150px !important;
+                            height: 20px !important;
+                            padding: 5px 5px !important;
+                            border-radius: 5px;
+                            float: right;
+                            margin: 5px 15px;
+                        "/> -->
+                        <div class="input-group ms-4">
+                            <span class="input-group-text bg-white pe-2" id="basic-addon1">
+                                <i class="fa fa-search" style="
+                                    font-size: 10px;
+                                "></i>
+                            </span>
+                            <input type="text" class="form-control" 
+                                placeholder="Search" aria-label="Username" 
+                                aria-describedby="basic-addon1" style="
+                                    height: 25px;
+                                    border-left: 0px;
+                                    padding-left: 0px;
+                                    max-width: 100px;
+                                ">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12">
+        <div class="d-flex" 
+            style="background-color: #e5e5e5; 
+                padding: 2px 5px;
+            ">
+            <ul class="navbar-nav"
+                style="display: contents;">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">File</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Edit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Song</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">View</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Controls</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="row bg-light" 
+            style="padding: 2px 5px; 
+                border-bottom: 1px solid #d8d8d8;
+            ">
+            <div class="col-2">
+                <button class="btn btn-sm border"
+                    style="
+                        font-size: 10px;
+                    ">
+                    <i class="fa fa-chevron-left" ></i>
+                </button>
+                <button class="btn btn-sm border"
+                    style="
+                        font-size: 10px;
+                    ">
+                    <i class="fa fa-chevron-right" ></i>
+                </button>
+                <button class="btn btn-sm border ms-2">
+                    <i class="fa fa-music" ></i>
+                    <label for="music" class="ms-2 me-4"
+                        style="font-weight: 500;">Music</label>
+                    <!-- <i class="fa fa-chevron-right" ></i> -->
+                    <img src="assets/images/arrow.png" alt="" srcset="">
+                </button>
+            </div>
+            <div class="col-10">
+                <div class="d-flex" style="
+                    padding-left: 28%;
+                ">
+                    <ul class="navbar-nav"
+                        style="display: contents;">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Library</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">For You</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Browse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Radio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Store</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" 
+            style="padding: 2px 5px; 
+                background-color: #fff;
+                min-height: 65vh;
+                color: #333;
+            ">
+            <div class="col-3"></div>
+            <div class="col-6 row">
+                <div class="" 
+                    style="
+                        padding: 10px 0px;
+                        border-bottom: 1px solid #d8d8d8;
+                    ">
+                    <label for="re" class="font-16">Redeem Code</label>
+                    <label for="re" class=" float-end"
+                        style="color: #878787;padding: 5px 0px;">
+                        <!-- <i class="fa fa-key"></i> -->
+                        
+                        <img src="assets/images/key.png" alt="" srcset="">
+                        Secure Connection
+                    </label>
+                </div>
+                <div class="col-12 text-center"
+                    style="
+                        padding: 20px 5px; 
+                        border-bottom: 1px solid #d8d8d8;
+                    ">
+                    <img src="assets/images/apple.png" alt="" srcset="">
+                </div>
+                <div class="col-2"></div>
+                <div class="col-8"
+                    style="
+                        padding: 10px 25px; 
+                        margin-bottom: 30px;
+                    ">
+                    <p>Enter your gift card or download code.</p>
+                    <p>
+                    This code will be applied to your Apple Account, fareednawaf@gmail.com.
+                    </p>
+                    <form action="#" onsubmit="event.preventDefault();
+                        lblMsg.style.display = 'block';
+                        if(code.value !== ''){
+                            lblMsg.textContent = 'This code has already been redeemed.'
+                        }else{
+                            lblMsg.textContent = 'A code is required.'
+                        }
+                    ">
+                        <input type="text" name="code"  id="code" 
+                            placeholder="Code" required autofocus
+                            class="form-control-sm"
+                            onchange="lblMsg.style.display = 'none';"
+                            style="
+                                min-height: 25px;
+                                height: 25px;
+                                font-size: 12px;
+                                width: 150px !important;
+                            "/>
+                        <input hidden
+                            type="submit" value="Redeem" 
+                            class="btn btn-white border"
+                            style="
+                                min-height: 25px;
+                                height: 25px;
+                                font-size: 12px !important;
+                                padding: 2px 10px !important;
+                            "/>
+                        <button
+                            class="btn btn-white border"
+                            style="
+                                min-height: 25px;
+                                height: 25px;
+                                font-size: 12px !important;
+                                padding: 2px 10px !important;
+                            ">Redeem</button>
+                        <span id="lblMsg" class="error-message"></span>
+                    </form>
+                    <p class="pt-5 text-center"
+                        style="font-size: 14px;">
+                        Terms and Conditions
+                    </p>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-12 text-center"
+                    style=" 
+                        border-bottom: 1px solid #d8d8d8;
+                    ">
+                </div>
+                <div class="row justify-content-center pb-4" 
+                    style="padding-top: 15px;
+                        border-bottom: 1px solid #d8d8d8;">
+                    <div class="footer-col">
+                        <h5>Apple Music</h5>
+                        <ul>
+                            <li>Get 1 Free Month of ...</li>
+                            <li>Apple Music 1</li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-col">
+                        <h5>Explore</h5>
+                        <ul>
+                            <li>Music</li>
+                            <li>Movies</li>
+                            <li>TV Shows</li>
+                            <li>App Store</li>
+                            <li>Books</li>
+                            <li>Podcasts</li>
+                            <li>...More</li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-col">
+                        <h5>Features</h5>
+                        <ul>
+                            <li>Purchased</li>
+                            <li>iTunes Match</li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-col">
+                        <h5>Help</h5>
+                        <ul>
+                            <li>Support</li>
+                            <li>iTunes Tutorials</li>
+                            <li>In-app Purchases</li>
+                            <li>System Status</li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-col">
+                        <h5>Manage</h5>
+                        <ul>
+                            <li>Account</li>
+                            <li>Redeem</li>
+                            <li>My Wish List</li>
+                            <li>Country or Region</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p>Copyright &copy; 2023 Apple Inc. All rights reserved. Privacy Policy | Terms and Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="assets/bootstrap-5.2.3-dist/js/jquery-3.6.3.min.js" ></script>
+    <script src="assets/bootstrap-5.2.3-dist/js/bootstrap.js" ></script>
+</body>
+
+</html>
