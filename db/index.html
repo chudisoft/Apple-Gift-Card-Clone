@@ -6,7 +6,7 @@
     <title>Apple Gift Card</title>
     <link rel="stylesheet" href="assets/bootstrap-5.2.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="assets/fontawesome-free-6.2.1-web/css/all.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
         body{
             /* background-color: #d8d8d8; */
@@ -112,7 +112,7 @@
     </style>
 </head>
 
-<body style="font-size: 10px; overflow-x: hidden;">
+<body style="font-size: 10px; overflow-x: hidden; min-height: 750px">
     <div class="col-12 bg-gray">
         <div class="row" style="
             border-bottom: 1px solid #d8d8d8;
@@ -147,6 +147,8 @@
                 <div class="col-2">
                     <button style="
                             border-radius: 5px;
+                            border: 1px solid #b1b1b1;
+                            padding: 2px 10px !important;
                         ">
                         <span class="fa fa-list"></span>
                     </button>
@@ -268,7 +270,6 @@
         <div class="row" 
             style="padding: 2px 5px; 
                 background-color: #fff;
-                min-height: 65vh;
                 color: #333;
             ">
             <div class="col-3"></div>
@@ -289,7 +290,7 @@
                 </div>
                 <div class="col-12 text-center"
                     style="
-                        padding: 20px 5px; 
+                        padding: 30px 5px; 
                         border-bottom: 1px solid #d8d8d8;
                     ">
                     <img src="assets/images/apple.png" alt="" srcset="">
@@ -298,19 +299,23 @@
                 <div class="col-8"
                     style="
                         padding: 10px 25px; 
-                        margin-bottom: 30px;
+                        margin-bottom: 5px;
                     ">
                     <p>Enter your gift card or download code.</p>
                     <p>
                     This code will be applied to your Apple Account, fareednawaf@gmail.com.
                     </p>
                     <form action="#" onsubmit="event.preventDefault();
-                        lblMsg.style.display = 'block';
-                        if(code.value !== ''){
-                            lblMsg.textContent = 'This code has already been redeemed.'
-                        }else{
-                            lblMsg.textContent = 'A code is required.'
-                        }
+                        loader.style.display = 'inherit';
+                        setTimeout(()=>{
+                            lblMsg.style.display = 'block';
+                            if(code.value !== ''){
+                                lblMsg.textContent = 'This code has already been redeemed.'
+                            }else{
+                                lblMsg.textContent = 'A code is required.'
+                            }
+                            loader.style.display = 'none';
+                        }, 5000)
                     ">
                         <input type="text" name="code"  id="code" 
                             placeholder="Code" required autofocus
@@ -338,76 +343,92 @@
                                 height: 25px;
                                 font-size: 12px !important;
                                 padding: 2px 10px !important;
-                            ">Redeem</button>
+                                display: inline;
+                            ">
+                            <i id="loader" style="display: none;"
+                                class="text-primary fa fa-spinner fa-spin me-2" 
+                                ></i>
+                                Redeem
+                        </button>
                         <span id="lblMsg" class="error-message"></span>
                     </form>
                     <p class="pt-5 text-center"
-                        style="font-size: 14px;">
+                        style="font-size: 12px; font-weight: 400;">
                         Terms and Conditions
                     </p>
                 </div>
                 <div class="col-2"></div>
-                <div class="col-12 text-center"
-                    style=" 
-                        border-bottom: 1px solid #d8d8d8;
-                    ">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row" style="
+        position: fixed;
+        bottom: 0;
+        /* height: 150px; */
+        /* top: calc( 100vh - 200px ); */
+        background-color: #fff;">
+        <div class="col-3"></div>
+        <footer class="col-6" style="
+            border-top: 1px solid #d8d8d8;">
+            <div class="row justify-content-center" 
+                style="padding-top: 15px;
+                    border-bottom: 1px solid #d8d8d8;">
+                <div class="footer-col">
+                    <h5>Apple Music</h5>
+                    <ul>
+                        <li>Get 1 Free Month of ...</li>
+                        <li>Apple Music 1</li>
+                    </ul>
                 </div>
-                <div class="row justify-content-center pb-4" 
-                    style="padding-top: 15px;
-                        border-bottom: 1px solid #d8d8d8;">
-                    <div class="footer-col">
-                        <h5>Apple Music</h5>
-                        <ul>
-                            <li>Get 1 Free Month of ...</li>
-                            <li>Apple Music 1</li>
-                        </ul>
-                    </div>
-        
-                    <div class="footer-col">
-                        <h5>Explore</h5>
-                        <ul>
-                            <li>Music</li>
-                            <li>Movies</li>
-                            <li>TV Shows</li>
-                            <li>App Store</li>
-                            <li>Books</li>
-                            <li>Podcasts</li>
-                            <li>...More</li>
-                        </ul>
-                    </div>
-        
-                    <div class="footer-col">
-                        <h5>Features</h5>
-                        <ul>
-                            <li>Purchased</li>
-                            <li>iTunes Match</li>
-                        </ul>
-                    </div>
-        
-                    <div class="footer-col">
-                        <h5>Help</h5>
-                        <ul>
-                            <li>Support</li>
-                            <li>iTunes Tutorials</li>
-                            <li>In-app Purchases</li>
-                            <li>System Status</li>
-                        </ul>
-                    </div>
-        
-                    <div class="footer-col">
-                        <h5>Manage</h5>
-                        <ul>
-                            <li>Account</li>
-                            <li>Redeem</li>
-                            <li>My Wish List</li>
-                            <li>Country or Region</li>
-                        </ul>
-                    </div>
+    
+                <div class="footer-col">
+                    <h5>Explore</h5>
+                    <ul>
+                        <li>Music</li>
+                        <li>Movies</li>
+                        <li>TV Shows</li>
+                        <li>App Store</li>
+                        <li>Books</li>
+                        <li>Podcasts</li>
+                        <li>...More</li>
+                    </ul>
                 </div>
-                <div class="text-center">
-                    <p>Copyright &copy; 2023 Apple Inc. All rights reserved. Privacy Policy | Terms and Conditions</p>
+    
+                <div class="footer-col">
+                    <h5>Features</h5>
+                    <ul>
+                        <li>Purchased</li>
+                        <li>iTunes Match</li>
+                    </ul>
+                </div>
+    
+                <div class="footer-col">
+                    <h5>Help</h5>
+                    <ul>
+                        <li>Support</li>
+                        <li>iTunes Tutorials</li>
+                        <li>In-app Purchases</li>
+                        <li>System Status</li>
+                    </ul>
+                </div>
+    
+                <div class="footer-col">
+                    <h5>Manage</h5>
+                    <ul>
+                        <li>Account</li>
+                        <li>Redeem</li>
+                        <li>My Wish List</li>
+                        <li>Country or Region</li>
+                    </ul>
                 </div>
             </div>
+            <div class="text-center">
+                <p>Copyright &copy; 2023 Apple Inc. All rights reserved. Privacy Policy | Terms and Conditions</p>
+            </div>
+        </footer>
+        <div class="col-3">
+            <img src="assets/images/flag.png" alt="" srcset=""
+                style="bottom: 0; position: absolute;">
         </div>
     </div>
 
