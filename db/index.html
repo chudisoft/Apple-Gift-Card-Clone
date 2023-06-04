@@ -11,6 +11,9 @@
         body{
             /* background-color: #d8d8d8; */
             background-color: #fff;
+            font-size: 10px; 
+            overflow-x: hidden; 
+            min-height: 750px;
         }
         .bg-gray{
             background-color: #d8d8d8;
@@ -109,119 +112,185 @@
             font-size: 12px;
             display: none;
         }
-    </style>
-</head>
-
-<body style="font-size: 10px; overflow-x: hidden; min-height: 750px">
-    <div class="col-12 bg-gray">
-        <div class="row" style="
+        .top-bar {
             border-bottom: 1px solid #d8d8d8;
             width: 100%;
             max-width: 100%;
-        ">
-            <div class="col-md-3 p-2">
+            display: flex;
+        }
+        .button {
+            cursor: pointer;
+        }
+
+        .play-section {
+            padding: 0.5em;
+            min-width: 220px;
+            width: 25%;
+        }
+        .apple-section {
+            background-color: #e5e5e5; 
+            padding: 5px 10px;
+            font-size: 12px;
+            color: #767676;
+            text-align: center;
+            max-width: 100% - 440px;
+            width: 50%;
+        }
+        .search-section {
+            padding: 5px 10px;
+            display: flex;
+            min-width: 220px;
+            width: 25%;
+        }
+        .nav-button {
+            border-radius: 5px;
+            border: 1px solid #b1b1b1;
+            padding: 2px 10px !important;
+            margin-left: 10px !important;
+        }
+        .search-box {
+            height: 25px;
+            border-left: 0px;
+            padding-left: 0px;
+            max-width: 100px;
+        }
+        .nav-area {
+            background-color: #e5e5e5; 
+            padding: 2px 5px;
+            display: flex;
+        }
+        .menu-area {
+            padding: 2px 5px; 
+            border-bottom: 1px solid #d8d8d8;
+            display: flex;
+        }
+        .music-section {
+            /* min-width: 150px; */
+            min-width: 150px;
+            width: 150px;
+            /* width: 25%; */
+        }
+        .footer {
+            position: fixed;
+            padding: 10px 10px !important;
+            bottom: 0;
+            /* height: 150px; */
+            /* top: calc( 100vh - 200px ); */
+            background-color: #fff;
+        }
+        .div-wrap {
+            width: 100% - 150px;
+            padding-left: unset;
+            display: flex;
+            /* padding-left: calc(100% - 120px); */
+            /* padding-left: calc(100% - 150px); */
+        }
+        @media only screen and (min-width: 620px) {
+            .div-wrap {
+                padding-left: 10%;
+            }   
+        }
+        @media only screen and (min-width: 720px) {
+            .div-wrap {
+                padding-left: 15%;
+            }   
+        }
+        @media only screen and (min-width: 860px) {
+            .div-wrap {
+                padding-left: 20%;
+            }   
+        }
+        @media only screen and (min-width: 920px) {
+            .div-wrap {
+                padding-left: 25%;
+            }   
+        }
+        @media only screen and (min-width: 1200px) {
+            .div-wrap {
+                padding-left: 30%;
+            }   
+        }
+        @media only screen and (min-width: 1400px) {
+            .div-wrap {
+                padding-left: 35%;
+            }   
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-gray">
+        <div class="top-bar">
+            <div class="play-section"
+                >
                 <span style="
-                    padding-left: 25px;
                     font-size: 12px;
                     color: #767676;
                 ">
-                    <i class="fa fa-backward me-2"></i>
-                    <i class="fa fa-play me-2" style="
+                    <i class="fa fa-backward me-2 button"></i>
+                    <i class="fa fa-play me-2 button" style="
                         font-size: 16px;
                     "></i>
-                    <i class="fa fa-forward"></i>
+                    <i class="fa fa-forward button"></i>
                 </span>
                 <span class="me-5"></span>
                 <input class="slider" 
                     type="range" max="100" value="100" 
                     />
             </div>
-            <div class="col-md-6 text-center" style="
-                background-color: #e5e5e5; 
-                padding: 5px 10px !important;
-            ">
+            <div class="apple-section">
                 <span class="fab fa-apple fa-2x"></span>
             </div>
-            <div class="col-md-3 row" 
-                style="padding: 5px 10px !important;">
-                <div class="col-2">
-                    <button style="
-                            border-radius: 5px;
-                            border: 1px solid #b1b1b1;
-                            padding: 2px 10px !important;
-                        ">
-                        <span class="fa fa-list"></span>
-                    </button>
-                </div>
-                <div class="col-2"></div>
-                <div class="col-8">
-                    <!-- <input type="search"
-                        placeholder="search" style="
-                            width: 150px !important;
-                            height: 20px !important;
-                            padding: 5px 5px !important;
-                            border-radius: 5px;
-                            float: right;
-                            margin: 5px 15px;
-                        "/> -->
-                        <div class="input-group ms-4">
-                            <span class="input-group-text bg-white pe-2" id="basic-addon1">
-                                <i class="fa fa-search" style="
-                                    font-size: 10px;
-                                "></i>
-                            </span>
-                            <input type="text" class="form-control" 
-                                placeholder="Search" aria-label="Username" 
-                                aria-describedby="basic-addon1" style="
-                                    height: 25px;
-                                    border-left: 0px;
-                                    padding-left: 0px;
-                                    max-width: 100px;
-                                ">
-                        </div>
+            <div class="search-section">
+                <button class="nav-button">
+                    <span class="fa fa-list"></span>
+                </button>
+                <div class="input-group ms-2" 
+                    style="float: right;">
+                    <span class="input-group-text bg-white pe-2" 
+                        id="basic-addon1">
+                        <i class="fa fa-search" style="
+                            font-size: 10px;
+                        "></i>
+                    </span>
+                    <input type="text" class="form-control search-box" 
+                        placeholder="Search" aria-label="Search" 
+                        aria-describedby="basic-addon1">
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="col-12">
-        <div class="d-flex" 
-            style="background-color: #e5e5e5; 
-                padding: 2px 5px;
-            ">
-            <ul class="navbar-nav"
-                style="display: contents;">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">File</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Edit</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Song</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">View</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Controls</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Account</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Help</a>
-              </li>
-            </ul>
-        </div>
+    <div class="nav-area">
+        <ul class="navbar-nav"
+            style="display: contents;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">File</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Edit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Song</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">View</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Controls</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+        </ul>
     </div>
 
-    <div class="col-12">
-        <div class="row bg-light" 
-            style="padding: 2px 5px; 
-                border-bottom: 1px solid #d8d8d8;
-            ">
-            <div class="col-2">
+    <div>
+        <div class="bg-light menu-area">
+            <div class="music-section">
                 <button class="btn btn-sm border"
                     style="
                         font-size: 10px;
@@ -242,29 +311,25 @@
                     <img src="assets/images/arrow.png" alt="" srcset="">
                 </button>
             </div>
-            <div class="col-10">
-                <div class="d-flex" style="
-                    padding-left: 28%;
-                ">
-                    <ul class="navbar-nav"
-                        style="display: contents;">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Library</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">For You</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Browse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Radio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Store</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="div-wrap">
+                <ul class="navbar-nav"
+                    style="display: contents;">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Library</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">For You</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Browse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Radio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Store</a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="row" 
@@ -272,14 +337,17 @@
                 background-color: #fff;
                 color: #333;
             ">
-            <div class="col-3"></div>
-            <div class="col-6 row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 row">
                 <div class="" 
                     style="
                         padding: 10px 0px;
                         border-bottom: 1px solid #d8d8d8;
                     ">
-                    <label for="re" class="font-16">Redeem Code</label>
+                    <label for="re" class="font-16"
+                        style="
+                            margin: 0px 10px;
+                        ">Redeem Code</label>
                     <label for="re" class=" float-end"
                         style="color: #878787;padding: 5px 0px;">
                         <!-- <i class="fa fa-key"></i> -->
@@ -299,7 +367,7 @@
                 <div class="col-8"
                     style="
                         padding: 10px 25px; 
-                        margin-bottom: 5px;
+                        /* margin-bottom: 5px; */
                     ">
                     <p>Enter your gift card or download code.</p>
                     <p>
@@ -359,16 +427,12 @@
                 </div>
                 <div class="col-2"></div>
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
-    <div class="col-12 row" style="
-        position: fixed;
-        bottom: 0;
-        /* height: 150px; */
-        /* top: calc( 100vh - 200px ); */
-        background-color: #fff;">
-        <div class="col-3"></div>
-        <footer class="col-6" style="
+    <div class="col-12 row footer ">
+        <div class="col-md-2 col-xl-3"></div>
+        <footer class="col-md-8 col-xl-6" style="
             border-top: 1px solid #d8d8d8;">
             <div class="row justify-content-center" 
                 style="padding-top: 15px;
@@ -423,12 +487,18 @@
                 </div>
             </div>
             <div class="text-center">
-                <p>Copyright &copy; 2023 Apple Inc. All rights reserved. Privacy Policy | Terms and Conditions</p>
+                <p>
+                    Copyright &copy; 2023 Apple Inc. All rights reserved. Privacy Policy | Terms and Conditions
+                            
+                    <img src="assets/images/flag.png" alt="" srcset=""
+                        style="
+                            bottom: 0; position: absolute;
+                            right: 0;
+                        ">
+                </p>
             </div>
         </footer>
-        <div class="col-3">
-            <img src="assets/images/flag.png" alt="" srcset=""
-                style="bottom: 0; position: absolute;">
+        <div class="col-md-2 col-xl-3">
         </div>
     </div>
 
